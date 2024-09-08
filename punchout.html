@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch-out Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="punchout-container">
+        <h2>Punch-out</h2>
+        <form id="punchoutForm" action="/punchout" method="POST">
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                {% for location in locations %}
+                <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>
+            <label for="canteen">Canteen:</label>
+            <select id="canteen" name="canteen" required>
+                <!-- Canteen options will be populated dynamically based on selected location -->
+            </select>
+            <button type="submit">Punch-out</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
